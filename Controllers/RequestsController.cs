@@ -11,7 +11,6 @@ namespace notification_system.Controllers {
             _context = context;
         }
         public IActionResult Index() {
-         
             return View();
 
         }
