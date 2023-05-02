@@ -1,16 +1,19 @@
 ﻿using Microsoft.CodeAnalysis.VisualBasic.Syntax;
 using Microsoft.Data.SqlClient;
 using notification_system.Models;
+using System.Security.Claims;
+using System.Security.Principal;
 
 namespace notification_system.Repository {
     public class CertificateRepository : ICertificateRepository {
        
 
         string connectionString = "";
+        IHttpContextAccessor _httpContextAccessor;
 
-        public CertificateRepository(IConfiguration configuration) {
+        public CertificateRepository(IConfiguration configuration, IHttpContextAccessor httpContextAccessor) {
             connectionString = configuration.GetConnectionString("DefaultConnection");
-
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public List<Certificate> GetExpiredCertificates() {

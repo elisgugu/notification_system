@@ -14,6 +14,9 @@ namespace notification_system {
             var builder = WebApplication.CreateBuilder(args);
            
             builder.Services.AddDbContext<NotificationCenterContext>(conn => conn.UseSqlServer("Data Source=.\\Database\\notification_center.mdf"));
+            builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            .AddEntityFrameworkStores<NotificationCenterContext>();
+            builder.Services.AddHttpContextAccessor();
             builder.Services.AddControllersWithViews();
             builder.Services.AddSignalR();
             builder.Services.AddScoped<IUserLogin, UserLoginService>();
@@ -23,6 +26,7 @@ namespace notification_system {
             builder.Services.AddSingleton<CertificateHub>();
             builder.Services.AddSingleton<SubscribeRequestTableDependency>();
             builder.Services.AddScoped<ExpirationService>();
+           
 
             var app = builder.Build();
 
@@ -31,7 +35,7 @@ namespace notification_system {
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
-
+          
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 

@@ -24,10 +24,7 @@ namespace notification_system.Controllers {
             var isSuccess = _userLogin.AuthenticateUser(username, password);
 
             if (isSuccess.Result != null) {
-                ViewBag.username = string.Format("Successfully logged-in", username);
-
-                TempData["username"] = username;
-                TempData["userId"] = isSuccess.Result.Id;
+                TempData["UserId"] = isSuccess.Result.Id;
                 _service.StartAsync();
                 return RedirectToAction("Index", "Requests");
             }

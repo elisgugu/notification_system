@@ -27,7 +27,7 @@ namespace notification_system.SubscribeTableDependencies {
 
         private void TableDependency_OnChanged(object sender, TableDependency.SqlClient.Base.EventArgs.RecordChangedEventArgs<Request> e) {
             if (e.ChangeType != TableDependency.SqlClient.Base.Enums.ChangeType.None) {
-                _requestHub.SendRequests().Wait();
+                //_requestHub.SendRequests().Wait();
             }
             if (e.ChangeType == TableDependency.SqlClient.Base.Enums.ChangeType.Update) {
                 _requestHub.SendUpdatedRecord(e);

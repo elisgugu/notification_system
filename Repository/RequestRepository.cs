@@ -11,14 +11,15 @@ namespace notification_system.Repository {
             connectionString = configuration.GetConnectionString("DefaultConnection");
         }
 
-        public List<Request> GetAllRequests() {
+        public List<Request> GetAllRequests(string id) {
             var notifications = new List<Request>();
             using (SqlConnection conn = new SqlConnection(connectionString)) {
                 conn.Open();
 
                 SqlDependency.Start(connectionString);
 
-                string commandText = "SELECT request.id as id, date, name, status FROM request JOIN request_status  ON request.status_id = request_status.id JOIN [user]  ON dbo.[user].id = request.user_id; ";
+                string commandText = $"SELECT request.id as id, date, name, status FROM request JOIN request_status  ON request.status_id = request_status.id JOIN [user]  ON dbo.[user].id = request.user_id" +
+                    $" where dbo.[user].id = '{id}'";
 
                 
                 SqlCommand cmd = new (commandText, conn);

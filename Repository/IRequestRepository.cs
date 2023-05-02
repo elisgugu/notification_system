@@ -2,6 +2,6 @@
 
 namespace notification_system.Repository {
     public interface IRequestRepository {
-        List<Request> GetAllRequests();
+        List<Request> GetAllRequests(string id);
     }
 }
