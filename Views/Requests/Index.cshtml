@@ -1,10 +1,10 @@
 ﻿
 @{
     ViewData["Title"] = "View";
-    var userId = TempData["userId"]?.ToString();
+    string userId = TempData.Peek("UserId").ToString();
 }
 
-<h1>View</h1>
+<h1 id="userName">@userId</h1>
 <div id="tblNotification"></div>
 <div id="tblCertificate"></div>
 <div>

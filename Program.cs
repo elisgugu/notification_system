@@ -40,9 +40,8 @@ namespace notification_system {
             app.UseStaticFiles();
 
             app.UseRouting();
-            app.UseAuthentication();
-      
-      
+            app.UseAuthentication();    
+     
             app.MapHub<RequestHub>("/requestMessages");
             app.MapHub<CertificateHub>("/certificateMessages");
             app.MapControllerRoute(

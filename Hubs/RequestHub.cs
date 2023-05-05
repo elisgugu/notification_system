@@ -1,11 +1,7 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.SignalR;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.SignalR;
 using notification_system.Models;
 using notification_system.Repository;
 using System.Collections.Concurrent;
-using System.Security.Claims;
 using TableDependency.SqlClient.Base.EventArgs;
 
 namespace notification_system.Hubs {
