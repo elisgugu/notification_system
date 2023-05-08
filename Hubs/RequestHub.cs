@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.SignalR;
+using notification_system.Interfaces;
 using notification_system.Models;
 using notification_system.Repository;
 using System.Collections.Concurrent;
@@ -7,12 +8,12 @@ using TableDependency.SqlClient.Base.EventArgs;
 namespace notification_system.Hubs {
 
     public class RequestHub : Hub {
-        RequestRepository _requestRepository;
+        IRequestRepository _requestRepository;
         IHttpContextAccessor _httpContextAccessor;
         private static ConcurrentDictionary<string, string> clients = new ConcurrentDictionary<string, string>();
 
-        public RequestHub(IConfiguration configuration, IHttpContextAccessor httpContextAccessor) {
-            _requestRepository = new RequestRepository(configuration);
+        public RequestHub(IRequestRepository reqRepo, IHttpContextAccessor httpContextAccessor) {
+            _requestRepository = reqRepo;
             _httpContextAccessor = httpContextAccessor;
             clients = new ConcurrentDictionary<string, string>();
         }

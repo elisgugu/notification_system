@@ -1,10 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using notification_system.Interfaces;
 using notification_system.Models;
-using notification_system.Repository;
 using notification_system.Services;
 using System.Diagnostics;
 
-namespace notification_system.Controllers {
+namespace notification_system.Controllers
+{
     public class HomeController : Controller {
         private readonly ILogger<HomeController> _logger;
         private IUserLogin _userLogin;
@@ -20,12 +21,12 @@ namespace notification_system.Controllers {
         }
 
         [HttpPost]
-        public IActionResult Index(string username, string password) {
-            var isSuccess = _userLogin.AuthenticateUser(username, password);
+        public async Task<IActionResult> Index(string username, string password) {
+            var isSuccess = await _userLogin.AuthenticateUser(username, password);
 
-            if (isSuccess.Result != null) {
-                TempData["UserId"] = isSuccess.Result.Id;
-                _service.StartAsync();
+            if (isSuccess != null) {
+                TempData["UserId"] = isSuccess.Id;
+                await _service.StartAsync();
                 return RedirectToAction("Index", "Requests");
             }
             else {

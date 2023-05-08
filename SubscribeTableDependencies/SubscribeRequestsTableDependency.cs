@@ -10,14 +10,15 @@ namespace notification_system.SubscribeTableDependencies {
         RequestHub _requestHub;
         
 
-        public SubscribeRequestTableDependency(RequestHub requestHub) {
-            _requestHub = requestHub;
-            
+        public SubscribeRequestTableDependency() {
+     
         }
 
-        public void SubscribeTableDependency(string connectionString) {
+        public void SubscribeTableDependency(string connectionString, RequestHub requestHub) {
             var mapper = new ModelToTableMapper<Request>();
             mapper.AddMapping(model => model.StatusId, "status_id");
+
+            _requestHub = requestHub;
 
             _tableDependency = new SqlTableDependency<Request>(connectionString, "Request", null,mapper, includeOldValues: true);
             _tableDependency.OnChanged += TableDependency_OnChanged;

@@ -2,13 +2,16 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 using notification_system.Hubs;
+using notification_system.Interfaces;
 using notification_system.MiddlewareExtensions;
 using notification_system.Models;
 using notification_system.Repository;
 using notification_system.Services;
 using notification_system.SubscribeTableDependencies;
+using System;
 
-namespace notification_system {
+namespace notification_system
+{
     public class Program {
         public static void Main(string[] args) {
             var builder = WebApplication.CreateBuilder(args);
@@ -22,10 +25,13 @@ namespace notification_system {
             builder.Services.AddScoped<IUserLogin, UserLoginService>();
             builder.Services.AddScoped<IRequestRepository, RequestRepository>();
             builder.Services.AddScoped<ICertificateRepository, CertificateRepository>();
-            builder.Services.AddSingleton<RequestHub>();
-            builder.Services.AddSingleton<CertificateHub>();
+            builder.Services.AddScoped<RequestHub>();
+            builder.Services.AddScoped<CertificateHub>();
             builder.Services.AddSingleton<SubscribeRequestTableDependency>();
-            builder.Services.AddScoped<ExpirationService>();
+            builder.Services.AddSingleton<ExpirationService>();
+            builder.Services.AddHostedService(
+                provider => provider.GetRequiredService<ExpirationService>());
+
            
 
             var app = builder.Build();
@@ -48,8 +54,8 @@ namespace notification_system {
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
-
-            app.UseSqlTableDependency<SubscribeRequestTableDependency>(app.Configuration.GetConnectionString("DefaultConnection"));
+            using var scope = app.Services.CreateScope();
+            app.UseSqlTableDependency<SubscribeRequestTableDependency>(app.Configuration.GetConnectionString("DefaultConnection"), scope.ServiceProvider.GetRequiredService<RequestHub>());
             app.Run();
         }
     }

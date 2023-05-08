@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
+using notification_system.Interfaces;
 using notification_system.Models;
 using System.Security.Claims;
 
-namespace notification_system.Repository {
+namespace notification_system.Repository
+{
     public class UserLoginService : IUserLogin {
         private readonly NotificationCenterContext _context;
        // private readonly IHubContext<SignalRServer> _context;
