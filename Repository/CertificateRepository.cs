@@ -50,13 +50,14 @@ namespace notification_system.Repository
             var userCertificates = from r in dbContext.Certificates
                                     join rs in dbContext.Users on r.UserId equals rs.Id
                                     where DateTime.Compare(DateTime.Now, r.EndDate) > 0
-                                    select new { r, rs.UserName };
+                                    select new { r, rs };
 
             await userCertificates.ForEachAsync((certificate) => {
                 certifications.Add(new Certificate() {
-                    User = certificate.r.User,
+                    User = certificate.rs,
                     Id = certificate.r.Id,
                     EndDate = certificate.r.EndDate,
+                    UserId = certificate.r.UserId
                 });
             });
 

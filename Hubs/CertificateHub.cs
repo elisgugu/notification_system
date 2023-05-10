@@ -11,8 +11,6 @@ namespace notification_system.Hubs {
         public CertificateHub() {
            
         }
-        public async Task SendRequests(List<Certificate> certificates) {
-            await Clients?.All.SendAsync("certificatesExpired", certificates);
-        }
+      
     }
 }
