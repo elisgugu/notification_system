@@ -55,7 +55,7 @@ namespace notification_system
                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
             using var scope = app.Services.CreateScope();
-            app.UseSqlTableDependency<SubscribeRequestTableDependency>(app.Configuration.GetConnectionString("DefaultConnection"), scope.ServiceProvider.GetRequiredService<RequestHub>());
+            app.UseSqlTableDependency<SubscribeRequestTableDependency>(app.Configuration.GetConnectionString("DefaultConnection"));
             app.Run();
         }
     }

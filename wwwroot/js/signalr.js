@@ -38,6 +38,7 @@ function ShowNotification(newRequest) {
     var notification = `Request changed to ${newRequest.status.status}`
 
     $("#tblNotification").html(notification)
+    InvokeRequests();
 }
 
 function BindRequestsToGrid(requests) {

@@ -22,39 +22,17 @@ namespace notification_system.Repository
         public async Task<List<Certificate>> GetExpiredCertificates(NotificationCenterContext dbContext)
         {
             var certifications = new List<Certificate>();
-
-            /* using (SqlConnection conn = new SqlConnection(connectionString))
-             {
-                 conn.Open();
-
-                 string commandText = "select * from certificate JOIN [user]  ON certificate.user_id = [user].id  where datediff(dd, end_date, getdate())>= 1";
-
-                 SqlCommand cmd = new(commandText, conn);
-
-                 var reader = cmd.ExecuteReader();
-
-                 while (reader.Read())
-                 {
-                     var certificate = new Certificate
-                     {
-                         Id = (int)reader["id"],
-                         User = new User()
-                         {
-                             Name = reader["name"].ToString(),
-                         },
-                         EndDate = Convert.ToDateTime(reader["end_date"]),
-                     };
-                     certifications.Add(certificate);
-                 }
-             }*/
             var userCertificates = from r in dbContext.Certificates
                                     join rs in dbContext.Users on r.UserId equals rs.Id
                                     where DateTime.Compare(DateTime.Now, r.EndDate) > 0
-                                    select new { r, rs };
+                                    select new { r, rs.UserName, rs.Name };
 
             await userCertificates.ForEachAsync((certificate) => {
                 certifications.Add(new Certificate() {
-                    User = certificate.rs,
+                    User = new User() {
+                        UserName = certificate.UserName,
+                        Name = certificate.Name
+                    },
                     Id = certificate.r.Id,
                     EndDate = certificate.r.EndDate,
                     UserId = certificate.r.UserId
