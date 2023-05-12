@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
+using notification_system.Data;
 using notification_system.Interfaces;
 using notification_system.Models;
 using System.Security.Claims;

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 using Microsoft.Data.SqlClient;
+using notification_system.Data;
 using notification_system.Hubs;
 using notification_system.Interfaces;
 using notification_system.Models;

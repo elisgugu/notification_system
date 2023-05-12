@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 
 namespace notification_system.Models;
 
-public partial class User
+public partial class User 
 {
     public Guid Id { get; set; }
 

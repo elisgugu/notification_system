@@ -1,6 +1,7 @@
 ﻿using Microsoft.CodeAnalysis.VisualBasic.Syntax;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using notification_system.Data;
 using notification_system.Interfaces;
 using notification_system.Models;
 using System.Security.Claims;

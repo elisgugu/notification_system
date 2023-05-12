@@ -1,11 +1,12 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 using Microsoft.Identity.Client;
+using notification_system.Data;
 using notification_system.Hubs;
 using notification_system.Interfaces;
-using notification_system.Models;
 using NuGet.Protocol.Core.Types;
 
-namespace notification_system.Services {
+namespace notification_system.Services
+{
     public class ExpirationService : BackgroundService {
 
         private ICertificateRepository _repository;

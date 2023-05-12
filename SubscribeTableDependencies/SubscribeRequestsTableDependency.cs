@@ -1,13 +1,14 @@
 ﻿using Microsoft.AspNetCore.SignalR;
+using notification_system.Data;
 using notification_system.Hubs;
 using notification_system.Interfaces;
-using notification_system.Models;
 using NuGet.Protocol.Core.Types;
 using TableDependency.SqlClient;
 using TableDependency.SqlClient.Base;
 using Request = notification_system.Models.Request;
 
-namespace notification_system.SubscribeTableDependencies {
+namespace notification_system.SubscribeTableDependencies
+{
     public class SubscribeRequestTableDependency : ISubscribeTableDependency {
         SqlTableDependency<Models.Request> _tableDependency;
         IHubContext<RequestHub> _requestHub;
