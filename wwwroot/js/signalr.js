@@ -14,8 +14,7 @@ $(function () {
 
 // Request
 function InvokeRequests() {
-    let userName = document.getElementById("userName").textContent;
-    reqCon.invoke("sendRequests", userName).catch(function (err) {
+    reqCon.invoke("sendRequests").catch(function (err) {
         return console.error(err.toString());
     });
 }

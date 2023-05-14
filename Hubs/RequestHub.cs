@@ -14,6 +14,7 @@ namespace notification_system.Hubs {
 
         public RequestHub(IRequestRepository reqRepo, IHttpContextAccessor httpContextAccessor) {
             _requestRepository = reqRepo;
+            
             _httpContextAccessor = httpContextAccessor;
             clients = new ConcurrentDictionary<string, string>();
         }
@@ -34,7 +35,8 @@ namespace notification_system.Hubs {
         }
 
 
-        public async Task SendRequests(string userId) {
+        public async Task SendRequests() {
+            var userId = _httpContextAccessor.HttpContext?.User?.Claims?.FirstOrDefault().ToString();
             var requests = _requestRepository.GetAllRequests(userId);
             await Clients.Caller.SendAsync("receivedRequest", requests);
         }
