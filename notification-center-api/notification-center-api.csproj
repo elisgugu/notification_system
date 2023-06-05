@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\common-data\common-data.csproj" />
+    <ProjectReference Include="..\..\notification_system-distributed\common-data\common-data.csproj" />
   </ItemGroup>
 
 </Project>
