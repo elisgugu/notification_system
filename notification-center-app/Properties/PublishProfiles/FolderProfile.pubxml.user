@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>bin\Release\net6.0\publish\</_PublishTargetUrl>
+    <History>True|2023-05-30T16:40:38.9598433Z;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="lib/microsoft/signalr/dist/browser/signalr.js">
+      <publishTime>05/30/2023 19:15:59</publishTime>
+    </File>
+    <File Include="lib/microsoft/signalr/dist/browser/signalr.min.js">
+      <publishTime>05/30/2023 19:15:59</publishTime>
+    </File>
+    <File Include="lib/signalr.js">
+      <publishTime>05/30/2023 19:33:15</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

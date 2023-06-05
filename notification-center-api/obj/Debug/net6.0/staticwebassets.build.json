@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "VMZ5U0zqy2IxhPsBcxiVqo6PYcmhPH6tSlHxE1mCrIo=",
+  "Source": "notification-center-api",
+  "BasePath": "_content/notification-center-api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "axLB3qoec5mHdgpO432aWdeNCrDOuPn6XPVFCL2dNlA=",
+  "Source": "notification-center-app",
+  "BasePath": "_content/notification-center-app",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

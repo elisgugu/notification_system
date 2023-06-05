@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\notification-center-app1.props" />
+</Project>

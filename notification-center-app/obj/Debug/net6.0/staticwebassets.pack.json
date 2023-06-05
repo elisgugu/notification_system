@@ -1,0 +1,37 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Projects\\notification_system\\notification-center-app\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\notification-center-app1.bundle.scp.css",
+      "PackagePath": "staticwebassets\\notification-center-app1.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Projects\\notification_system\\notification-center-app\\wwwroot\\js\\signalr.js",
+      "PackagePath": "staticwebassets\\js\\signalr.js"
+    },
+    {
+      "Id": "C:\\Projects\\notification_system\\notification-center-app\\wwwroot\\js\\signalr\\dist\\browser\\signalr.js",
+      "PackagePath": "staticwebassets\\js\\signalr\\dist\\browser\\signalr.js"
+    },
+    {
+      "Id": "C:\\Projects\\notification_system\\notification-center-app\\wwwroot\\js\\signalr\\dist\\browser\\signalr.min.js",
+      "PackagePath": "staticwebassets\\js\\signalr\\dist\\browser\\signalr.min.js"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.notification-center-app1.props",
+      "PackagePath": "build\\notification-center-app1.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.notification-center-app1.props",
+      "PackagePath": "buildMultiTargeting\\notification-center-app1.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.notification-center-app1.props",
+      "PackagePath": "buildTransitive\\notification-center-app1.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.notification-center-app1.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
